@@ -1,0 +1,55 @@
+[2024-06-05T15:45:08.305+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-05T15:45:08.341+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: s3_to_postgres.download_and_insert_data scheduled__2024-06-05T15:39:00+00:00 [queued]>
+[2024-06-05T15:45:08.354+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: s3_to_postgres.download_and_insert_data scheduled__2024-06-05T15:39:00+00:00 [queued]>
+[2024-06-05T15:45:08.355+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2024-06-05T15:45:08.376+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): download_and_insert_data> on 2024-06-05 15:39:00+00:00
+[2024-06-05T15:45:08.384+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=81) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-06-05T15:45:08.386+0000] {standard_task_runner.py:63} INFO - Started process 85 to run task
+[2024-06-05T15:45:08.386+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 's3_to_postgres', 'download_and_insert_data', 'scheduled__2024-06-05T15:39:00+00:00', '--job-id', '686', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpl2i__hp2']
+[2024-06-05T15:45:08.389+0000] {standard_task_runner.py:91} INFO - Job 686: Subtask download_and_insert_data
+[2024-06-05T15:45:08.470+0000] {task_command.py:426} INFO - Running <TaskInstance: s3_to_postgres.download_and_insert_data scheduled__2024-06-05T15:39:00+00:00 [running]> on host 59823e4cc57c
+[2024-06-05T15:45:08.613+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='s3_to_postgres' AIRFLOW_CTX_TASK_ID='download_and_insert_data' AIRFLOW_CTX_EXECUTION_DATE='2024-06-05T15:39:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-05T15:39:00+00:00'
+[2024-06-05T15:45:08.616+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-05T15:45:11.932+0000] {logging_mixin.py:188} INFO - Starting data insertion to PostgreSQL
+[2024-06-05T15:45:11.934+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-05T15:45:11.935+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/pipeline.py", line 199, in download_and_insert_data
+    insert_data_into_postgres(data)
+  File "/opt/airflow/dags/pipeline.py", line 117, in insert_data_into_postgres
+    conn = psycopg2.connect(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (::1), port 5432 failed: Cannot assign requested address
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2024-06-05T15:45:11.951+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=s3_to_postgres, task_id=download_and_insert_data, run_id=scheduled__2024-06-05T15:39:00+00:00, execution_date=20240605T153900, start_date=20240605T154508, end_date=20240605T154511
+[2024-06-05T15:45:11.970+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 686 for task download_and_insert_data (connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (::1), port 5432 failed: Cannot assign requested address
+	Is the server running on that host and accepting TCP/IP connections?
+; 85)
+[2024-06-05T15:45:12.018+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-05T15:45:12.054+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-05T15:45:12.061+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

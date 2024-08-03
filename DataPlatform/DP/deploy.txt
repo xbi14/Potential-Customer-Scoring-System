@@ -1,0 +1,58 @@
+guidelines: https://github.com/yeshwanthlm/YouTube/blob/main/flask-on-aws-ec2.md
+
+1  sudo apt-get update
+1.1 sudo apt-get git
+2  sudo apt install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev build-essential
+3  sudo apt-get install wget
+4  git
+5  git --version
+6  git clone https://github.com/Huy-coder2801/DP_project.git
+7  ls
+8  cd DP_project
+9  ls
+10  cd DP
+11  ls
+12  python3 -m venv env
+13  sudo apt-get install python3-venv
+14  python3 -m venv env
+15  ls
+16  source env/bin/activate
+17  pip install -r requirements.txt
+18  pip install gunicorn
+19  gunicorn -b 0.0.0.0:8000 app:app 
+20  sudo nano /etc/systemd/system/flaskapp.service
+add:
+[Unit]
+Description=Gunicorn instance for a simple hello world app
+After=network.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/DP_project/DP
+ExecStart=/home/ubuntu/DP_project/DP/env/bin/gunicorn -b localhost:8000 app:app
+Restart=always
+[Install]
+WantedBy=multi-user.target
+
+21  sudo systemctl daemon-reload
+22  sudo systemctl start flaskapp
+23  sudo systemctl enable flaskapp
+24  curl localhost:8000
+25  sudo apt-get nginx
+26  sudo apt-get install nginx
+27  sudo systemctl start nginx
+28  sudo systemctl enabl nginx
+29  sudo systemctl enable nginx
+30  sudo nano /etc/nginx/sites-available/default
+add file:
+upstream flaskapp {
+    server 127.0.0.1:8000;
+}
+
+edit:
+location / {
+    proxy_pass http://flaskapp;
+}
+
+31  sudo systemctl restart nginx
+32  history

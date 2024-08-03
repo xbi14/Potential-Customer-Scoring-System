@@ -1,0 +1,71 @@
+[2024-06-05T17:08:33.851+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-05T17:08:33.882+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: s3_postgres.download_and_insert_data scheduled__2024-06-04T00:00:00+00:00 [queued]>
+[2024-06-05T17:08:33.895+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: s3_postgres.download_and_insert_data scheduled__2024-06-04T00:00:00+00:00 [queued]>
+[2024-06-05T17:08:33.896+0000] {taskinstance.py:2306} INFO - Starting attempt 3 of 4
+[2024-06-05T17:08:33.918+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): download_and_insert_data> on 2024-06-04 00:00:00+00:00
+[2024-06-05T17:08:33.929+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=305) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-06-05T17:08:33.931+0000] {standard_task_runner.py:63} INFO - Started process 307 to run task
+[2024-06-05T17:08:33.931+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 's3_postgres', 'download_and_insert_data', 'scheduled__2024-06-04T00:00:00+00:00', '--job-id', '727', '--raw', '--subdir', 'DAGS_FOLDER/pipe.py', '--cfg-path', '/tmp/tmpnsuaw3am']
+[2024-06-05T17:08:33.932+0000] {standard_task_runner.py:91} INFO - Job 727: Subtask download_and_insert_data
+[2024-06-05T17:08:33.993+0000] {task_command.py:426} INFO - Running <TaskInstance: s3_postgres.download_and_insert_data scheduled__2024-06-04T00:00:00+00:00 [running]> on host 6dbcf9923072
+[2024-06-05T17:08:34.104+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='s3_postgres' AIRFLOW_CTX_TASK_ID='download_and_insert_data' AIRFLOW_CTX_EXECUTION_DATE='2024-06-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-04T00:00:00+00:00'
+[2024-06-05T17:08:34.106+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-05T17:08:37.899+0000] {base.py:84} INFO - Using connection ID 'postgres_default' for task execution.
+[2024-06-05T17:08:40.478+0000] {logging_mixin.py:188} INFO - Data insertion complete
+[2024-06-05T17:08:40.480+0000] {python.py:237} INFO - Done. Returned value was: None
+[2024-06-05T17:08:40.480+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-05T17:08:40.502+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=s3_postgres, task_id=download_and_insert_data, run_id=scheduled__2024-06-04T00:00:00+00:00, execution_date=20240604T000000, start_date=20240605T170833, end_date=20240605T170840
+[2024-06-05T17:08:40.530+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2024-06-05T17:08:40.560+0000] {taskinstance.py:3498} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-06-05T17:08:40.563+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-06-05T17:44:15.872+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-06-05T17:44:15.911+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: s3_postgres.download_and_insert_data scheduled__2024-06-04T00:00:00+00:00 [queued]>
+[2024-06-05T17:44:15.927+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: s3_postgres.download_and_insert_data scheduled__2024-06-04T00:00:00+00:00 [queued]>
+[2024-06-05T17:44:15.928+0000] {taskinstance.py:2306} INFO - Starting attempt 3 of 4
+[2024-06-05T17:44:15.954+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): download_and_insert_data> on 2024-06-04 00:00:00+00:00
+[2024-06-05T17:44:15.965+0000] {warnings.py:110} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=69) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-06-05T17:44:15.967+0000] {standard_task_runner.py:63} INFO - Started process 71 to run task
+[2024-06-05T17:44:15.968+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 's3_postgres', 'download_and_insert_data', 'scheduled__2024-06-04T00:00:00+00:00', '--job-id', '800', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmptcsivcy2']
+[2024-06-05T17:44:15.971+0000] {standard_task_runner.py:91} INFO - Job 800: Subtask download_and_insert_data
+[2024-06-05T17:44:16.076+0000] {task_command.py:426} INFO - Running <TaskInstance: s3_postgres.download_and_insert_data scheduled__2024-06-04T00:00:00+00:00 [running]> on host b9a8b9be1324
+[2024-06-05T17:44:16.211+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='s3_postgres' AIRFLOW_CTX_TASK_ID='download_and_insert_data' AIRFLOW_CTX_EXECUTION_DATE='2024-06-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-04T00:00:00+00:00'
+[2024-06-05T17:44:16.213+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-06-05T17:44:19.652+0000] {base.py:84} INFO - Using connection ID 'postgres_default' for task execution.
+[2024-06-05T17:44:19.673+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-06-05T17:44:19.674+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/pipeline.py", line 135, in download_and_insert_data
+    insert_data_into_postgres(data)
+  File "/opt/airflow/dags/pipeline.py", line 101, in insert_data_into_postgres
+    cursor.execute(insert_query, list(record.values()))
+psycopg2.errors.UndefinedTable: relation "potential_customers" does not exist
+LINE 1: INSERT INTO potential_customers (UserID, basket_icon_click, ...
+                    ^
+
+[2024-06-05T17:44:19.686+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=s3_postgres, task_id=download_and_insert_data, run_id=scheduled__2024-06-04T00:00:00+00:00, execution_date=20240604T000000, start_date=20240605T174415, end_date=20240605T174419
+[2024-06-05T17:44:19.703+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 800 for task download_and_insert_data (relation "potential_customers" does not exist
+LINE 1: INSERT INTO potential_customers (UserID, basket_icon_click, ...
+                    ^
+; 71)
+[2024-06-05T17:44:19.720+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-06-05T17:44:19.750+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-06-05T17:44:19.752+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
